@@ -1,0 +1,4 @@
+#resultsTable tbody tr:hover {
+	background-color: orange;
+	cursor: pointer;
+}

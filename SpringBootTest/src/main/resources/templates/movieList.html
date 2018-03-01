@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<div th:replace="fragments/header :: header" />
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar" />
+	<table class="table" id="resultsTable">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Year</th>
+				<th>imdbID</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="movie: ${movies}">
+				<td th:text="${movie.Title}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
