@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Product</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/listProduct.css"/>
+	</head>
+	<body>
+		<div th:replace="fragments/header :: header"></div>
+		<div class="container" style="min-height: 500px">
+			<div class="container">
+				<h1 class="text-center">Products</h1>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Brand</th>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="product : ${products}">
+							<td th:text="${product.brand}"></td>
+							<td th:text="${product.name}"></td>
+							<td th:text="${product.salePrice}"></td>
+							<td th:text="${product.amount}"></td>
+							<td><button id="deleteproduct" class="btn btn-danger btn-sm" th:onclick="'javascript:delete_product(\'' + ${product.id} +'\');'">Delete</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<a href="/contact" id="contact">Contact Us</a>
+		<div class="messagepop pop">
+			<p>Are you sure?</p>
+			<p>Yes</p>
+			<p>No</p>
+		</div>
+		<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+		<script type="text/javascript" src="js/listProduct.js"></script>
+		<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>
